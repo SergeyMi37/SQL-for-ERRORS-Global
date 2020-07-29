@@ -1,18 +1,12 @@
 /// make ^ERROR visible in SQL
 Class zrcc.ERRORStack Extends %Persistent [ Final, SqlRowIdPrivate, StorageStrategy = global ]
 {
-
-Property Day As %Date [ ReadOnly ];
-
-Property Seq As %Integer [ ReadOnly ];
-
-Property StackLevel As %Integer [ ReadOnly ];
-
-Property Type As %String [ ReadOnly ];
-
-Property Item As %String [ ReadOnly ];
-
-Property Value As %String(MAXLEN = "") [ ReadOnly ];
+Property Day As %Date [ ReadOnly, SqlColumnNumber = 2 ];
+Property Seq As %Integer [ ReadOnly, SqlColumnNumber = 3 ];
+Property StackLevel As %Integer [ ReadOnly, SqlColumnNumber = 4 ];
+Property Type As %String [ ReadOnly, SqlColumnNumber = 5 ];
+Property Item As %String [ ReadOnly, SqlColumnNumber = 6 ];
+Property Value As %String(MAXLEN = "") [ ReadOnly, SqlColumnNumber = 7 ];
 
 Index idx On (Day, Seq, StackLevel, Type, Item) [ IdKey ];
 
