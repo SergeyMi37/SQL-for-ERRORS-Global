@@ -19,7 +19,7 @@ consequence, the depth of subscripts (typically IdKey) varies from 3 to 11.
 
 ^ERRORS is independent in every namespace    
 It is  structured by Day,SequenceByDay, Type, ItemName (Variable, OREF),Value   
-__zrcc.ERRORStack__  covers this a SQL table.    
+__zrcc.ERRORStack__  covers this as SQL table.    
 Deeper content of the objects becomes visible by the included custom query.  
 The SQL procedure __zrcc.ERRORStac_Dump(Day,Sequence)__ returns all available  
 content and presents subscripts and values as you see in global listing.  
