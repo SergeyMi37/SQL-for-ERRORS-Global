@@ -5,27 +5,27 @@
 ~~~ 
 
 Standard error logs in IRIS / Caché / Ensemble are written global ^ERRORS.  
-As this piece dates back some decades back to previous millenium its structure  
+As this piece dates back some decades back to previous millennium its structure  
 is far from the typical SQL storage structures.  
-The global is written by routine %ETN.int and the content becomes visible from   
-terminmal command line by routine %ERN or in Mgmt Portal as Application Error Log.   
+The global is written by routine ^%ETN.int and the content becomes visible from   
+terminal command line by routine ^%ERN or in Mgmt Portal as Application Error Log.   
 
-It is just not available to SQL as there is no Class wrapped around.
+It is just not available to SQL as there is no Class wrapped around.  
 For several reasons:  
-- When it was designed it was good practice to have index like structures in the  
-same globals as the data. If I say 'like', this means it is of no use for SQL.   
-- As next the content of objects are going to deeper levels than the rest. As a   
-consequence the depth of subscripts (typically IdKey) varies from 3 to 11.  
+- When it was designed it was good practice to have index like structures in the    
+same globals as the data. If I say 'like', this means it is of no use for SQL.    
+- As next the content of objects are going to deeper levels than the rest. As a    
+consequence, the depth of subscripts (typically IdKey) varies from 3 to 11.  
 
-^ERRORS is indpendent in every namespace    
-It is  stuctured by Day,SequenceByDay, Type, ItemName (Variable, OREF),Value   
+^ERRORS is independent in every namespace    
+It is  structured by Day,SequenceByDay, Type, ItemName (Variable, OREF),Value   
 __zrcc.ERRORStack__  covers this a SQL table.    
 Deeper content of the objects becomes visible by the included custom query.  
 The SQL procedure __zrcc.ERRORStac_Dump(Day,Sequence)__ returns all available  
 content and presents subscripts and values as you see in global listing.  
 
 How to make best use of both components: 
-- first find your day and sequence number using SQL
+first: find your day and sequence number using SQL
 
 Example: __SELECT * FROM zrcc.ERRORStack where item='$ZE'__
 ~~~
@@ -36,7 +36,7 @@ Example: __SELECT * FROM zrcc.ERRORStack where item='$ZE'__
 2020-07-20	1	 0	   V	  $ZE	<LOG ENTRY>
 2020-07-26	1	 0	   V	  $ZE	<WRITE>zSend+204^%Net.HttpRequest.1
 ~~~
-Then: __call zrcc.ERRORStack_Dump('2020-07-26',1)__
+Then in SQL :   __CALL zrcc.ERRORStack_Dump('2020-07-26',1)__
 ~~~
 Row count: 541 Performance: 0.026 seconds  6557 global references
 Ref	                                Value
