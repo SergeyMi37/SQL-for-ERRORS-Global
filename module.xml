@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="terminal-multiline.ZPM">
+  <Document name="sql-for-error-global.ZPM">
     <Module>
-      <Name>terminal-multiline</Name>
-      <Version>1.0.1</Version>
-      <Description>Multi-Line in Terminal Command</Description>
-      <Keywords>Terminal, COS</Keywords>
+      <Name>sql-for-error-global</Name>
+      <Version>1.0.0</Version>
+      <Description>Map ^ERROR Global and have a custom query for full content</Description>
+      <Keywords>Terminal, COS SQL, Custom Query</Keywords>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-       <Resource Name="%zml.MAC"/>
+       <Resource Name="zrcc.ERRORStack.CLS"/>
     </Module>
   </Document>
 </Export>
