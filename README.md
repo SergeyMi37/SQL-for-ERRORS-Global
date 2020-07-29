@@ -5,27 +5,27 @@
 ~~~ 
 
 Standard error logs in IRIS / Caché / Ensemble are written global ^ERRORS.  
-As this piece dates back some decades back to previous century it's structure  
+As this piece dates back some decades back to previous millenium its structure  
 is far from the typical SQL storage structures.  
-The globaö is wrteen by routine %ETN.int and the content becomes visible from   
+The global is written by routine %ETN.int and the content becomes visible from   
 terminmal command line by routine %ERN or in Mgmt Portal as Application Error Log.   
 
-It is just not available in to SQL as there is no Class wrapped around.
-For severasl reasons:  
+It is just not available to SQL as there is no Class wrapped around.
+For several reasons:  
 - When it was designed it was good practice to have index like structures in the  
 same globals as the data. If I say 'like', this means it is of no use for SQL.   
 - As next the content of objects are going to deeper levels than the rest. As a   
 consequence the depth of subscripts (typically IdKey) varies from 3 to 11.  
 
 ^ERRORS is indpendent in every namespace    
-It is  stuctured by DAY,SequencwwByDay, Type, ItemName (Variable, OREF),Value   
+It is  stuctured by Day,SequenceByDay, Type, ItemName (Variable, OREF),Value   
 __zrcc.ERRORStack__  covers this a SQL table.    
-Deeper content of the objects become visible by the encluded custom query.  
-The SQL procedure __zrcc.ERRORStac_Dump(Day,Sequence)__ return all available  
+Deeper content of the objects becomes visible by the included custom query.  
+The SQL procedure __zrcc.ERRORStac_Dump(Day,Sequence)__ returns all available  
 content and presents subscripts and values as you see in global listing.  
 
 How to make best use of both components: 
-- first find your day and seqquence number using SQL SELECT FROM zrcc.ERRORStack
+- first find your day and sequence number using SQL
 
 Example: __SELECT * FROM zrcc.ERRORStack where item='$ZE'__
 ~~~
@@ -62,7 +62,7 @@ Ref	                                Value
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,6)	+----------------- attribute values ------------------
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,7)	| %Concurrency =
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,8)	4 <Set>
-
+- - - 
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,53)	| EmailOutput =
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,54)	0
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,55)	| EndDate =
@@ -70,13 +70,13 @@ Ref	                                Value
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,57)	| Error =
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,58)	"<WRITE>zSend+204^%Net.HttpRequest.1"
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,59)	| Expires =
-
+- - -
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,111)	| Status =
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,112)	"0 "_$lb($lb(5002,"POST to Server Failed",,,,,,,,$lb(,"%SYS",$lb("$^zSend+204^%Net.HttpRequest.1 +1","$^zPost+1^%Net.HttpRequest.1 +1","$^zSendData+20^FT.Collector.1 +1","$^zTransfer+12^FT.Collector.1 +1","$^zOnTask+3^%SYS.Task.FeatureTracker.1 +1","D^zRunTask+74^%SYS.TaskSuper.1 +1","$^zRunTask+54^%SYS.TaskSuper.1 +1","D^zRun+26^%SYS.TaskSuper.1 +1"))),$lb(6085,"ISC.FeatureTracker.SSL.Config","SSL/TLS error in SSL_connect(), SSL_ERROR_SSL: protocol error, error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed",,,,,,,$lb(,"%SYS",$lb("e^zSend+303^%Net.HttpRequest.1^1","e^zPost+1^%Net.HttpRequest.1^1","e^zSendData+20^FT.Collector.1^1","e^zTransfer+12^FT.Collector.1^1","e^zOnTask+3^%SYS.Task.FeatureTracker.1^1","e^zRunTask+74^%SYS.TaskSuper.1^1","d^zRunTask+54^%SYS.TaskSuper.1^1","e^zRun+26^%SYS.TaskSuper.1^1","d^^^0"))))/* ERROR #5002: Cache error: POST to Server Failed- ERROR #6085: Unable to write to socket with SSL/TLS configuration 'ISC.FeatureTracker.SSL.Config', error reported 'SSL/TLS error in SSL_connect(), SSL_ERROR_SSL: protocol error, error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify failed' */
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,113)	| SuspendOnError =
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,114)	0
 2020-07-26,1,"*STACK",3,"V","Task","OREF",1,115)	| Suspended =
-
+- - -
 2020-07-26,1,"*STACK",6,"V","Status1")	1
 2020-07-26,1,"*STACK",6,"V","Task")	<OBJECT REFERENCE>[1@%SYS.Task]
 2020-07-26,1,"*STACK",6,"V","Task","OREF",1)	142
@@ -98,7 +98,7 @@ Ref	                                Value
 2020-07-26,1,"*STACK",6,"V","Task","OREF",1,15)	| DailyIncrement =
 2020-07-26,1,"*STACK",6,"V","Task","OREF",1,16)	""
 2020-07-26,1,"*STACK",6,"V","Task","OREF",1,17)	| DailyStartTime =
-
+- - - 
 2020-07-26,1,"*STACK",12,"V","%00000","N","""JournalState""")	12
 2020-07-26,1,"*STACK",13,"I")	13^Z^ETNERRB^%ETN^0
 2020-07-26,1,"*STACK",13,"L")	13 ERROR TRAP S $ZTRAP="ETNERRB^%ETN"
