@@ -3,7 +3,7 @@
   <Document name="sql-for-error-global.ZPM">
     <Module>
       <Name>sql-for-error-global</Name>
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
       <Description>Map ^ERROR Global and have a custom query for full content</Description>
       <Keywords>Terminal, COS SQL, Custom Query</Keywords>
       <Packaging>module</Packaging>
