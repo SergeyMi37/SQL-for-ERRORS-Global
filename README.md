@@ -29,12 +29,13 @@ first: find your day and sequence number using SQL
 
 Example: __SELECT * FROM zrcc.ERRORStack where item='$ZE'__
 ~~~
-    Day	 Seq	Stk Type	Item	Value
-2020-07-02	1	 0	   V	  $ZE	<WRITE>zSend+204^%Net.HttpRequest.1
-2020-07-07	1	 0	   V	  $ZE	<WRITE>zSend+204^%Net.HttpRequest.1
-2020-07-15	1	 0	   V	  $ZE	<WRITE>zSend+204^%Net.HttpRequest.1
-2020-07-20	1	 0	   V	  $ZE	<LOG ENTRY>
-2020-07-26	1	 0	   V	  $ZE	<WRITE>zSend+204^%Net.HttpRequest.1
+Day|Seq|Stack|Type|Item|Value
+----------|---|---|---|-----|---------    
+2020-07-02|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
+2020-07-07|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
+2020-07-15|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
+2020-07-20|1|0|V|$ZE|<LOG ENTRY>
+2020-07-26|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
 ~~~
 Then in SQL :   __CALL zrcc.ERRORStack_Dump('2020-07-26',1)__
 ~~~
@@ -108,3 +109,5 @@ Ref	                                Value
 541 row(s) affected
 
 ~~~
+
+[Article in DC](https://community.intersystems.com/post/sql-error-global)
