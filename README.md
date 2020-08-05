@@ -28,15 +28,16 @@ How to make best use of both components:
 first: find your day and sequence number using SQL
 
 Example: __SELECT * FROM zrcc.ERRORStack where item='$ZE'__
-~~~
-Day|Seq|Stack|Type|Item|Value
-----------|---|---|---|-----|---------    
-2020-07-02|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
-2020-07-07|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
-2020-07-15|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
-2020-07-20|1|0|V|$ZE|<LOG ENTRY>
-2020-07-26|1|0|V|$ZE|<WRITE>zSend+204^%Net.HttpRequest.1
-~~~
+
+```
+	Day	 Seq	Stk	Type	Item	Value
+2020-07-02 	1 	0 	V 	$ZE 	<WRITE>zSend+204^%Net.HttpRequest.1
+2020-07-07 	1 	0 	V 	$ZE 	<WRITE>zSend+204^%Net.HttpRequest.1
+2020-07-15 	1 	0 	V 	$ZE 	<WRITE>zSend+204^%Net.HttpRequest.1
+2020-07-20 	1 	0 	V 	$ZE 	<LOG ENTRY>
+2020-07-26 	1 	0 	V 	$ZE 	<WRITE>zSend+204^%Net.HttpRequest.
+```
+ 
 Then in SQL :   __CALL zrcc.ERRORStack_Dump('2020-07-26',1)__
 ~~~
 Row count: 541 Performance: 0.026 seconds  6557 global references
